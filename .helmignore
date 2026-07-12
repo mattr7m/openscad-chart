@@ -1,0 +1,6 @@
+# .helmignore
+.git
+.helmignore
+*.md
+LICENSE
+CODEOWNERS
