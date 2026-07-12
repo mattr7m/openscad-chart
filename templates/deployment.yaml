@@ -41,6 +41,18 @@ spec:
               mountPath: /home/{{ .Values.env.NB_USER | default "openscad" }}/projects
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.service.mcp.enabled }}
+        - name: mcp
+          image: "{{ .Values.mcp.image.repository }}:{{ .Values.mcp.image.tag }}"
+          command: {{ toYaml .Values.mcp.command | nindent 12 }}
+          ports:
+            - name: mcp
+              containerPort: {{ .Values.service.mcp.port }}
+              protocol: TCP
+          volumeMounts:
+            - name: projects
+              mountPath: /home/{{ .Values.env.NB_USER | default "openscad" }}/projects
+      {{- end }}
       {{- if .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml .Values.nodeSelector | nindent 8 }}

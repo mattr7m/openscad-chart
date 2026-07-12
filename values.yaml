@@ -56,3 +56,9 @@ resources:
 nodeSelector: {}
 tolerations: []
 affinity: {}
+
+mcp:
+  image:
+    repository: ""
+    tag: ""
+  command: []
