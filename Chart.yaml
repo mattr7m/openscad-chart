@@ -1,0 +1,6 @@
+apiVersion: v2
+name: openscad-chart
+description: Minimal Helm chart for the OpenSCAD web application (GUI + optional MCP sidecar)
+type: application
+version: 0.1.0
+appVersion: "2025.01"
